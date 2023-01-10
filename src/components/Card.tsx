@@ -1,6 +1,7 @@
 import { FragmentType, useFragment } from "../gql/fragment-masking";
 import { graphql } from "../gql";
 import { capitalize } from "../utils";
+import { TypeBadge } from "./TypeBadge";
 
 export const PokeFragment = graphql(/* GraphQL */ `
   fragment PokeItem on pokemon_v2_pokemon {
@@ -8,6 +9,10 @@ export const PokeFragment = graphql(/* GraphQL */ `
     name
     sprites: pokemon_v2_pokemonsprites(limit: 1) {
       sprites
+    }
+
+    types: pokemon_v2_pokemontypes {
+      ...PokeType
     }
   }
 `);
@@ -24,10 +29,11 @@ export function Card(props: { poke: FragmentType<typeof PokeFragment> }) {
         <img src={sprite.front_shiny} alt={poke.name} />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">
-          {capitalize(poke.name)}
-          <div className="badge badge-outline">#{poke.id}</div>
-        </h2>
+        <h2 className="card-title">{capitalize(poke.name)}</h2>
+        <div className="badge badge-outline">#{poke.id}</div>
+        {poke.types.map((type, i) => (
+          <TypeBadge type={type} key={i} />
+        ))}
       </div>
     </div>
   );

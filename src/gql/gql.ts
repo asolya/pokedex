@@ -13,7 +13,8 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel-plugin for production.
  */
 const documents = {
-    "\n  fragment PokeItem on pokemon_v2_pokemon {\n    id\n    name\n    sprites: pokemon_v2_pokemonsprites(limit: 1) {\n      sprites\n    }\n\n    types: pokemon_v2_pokemontypes {\n      ...PokeType\n    }\n  }\n": types.PokeItemFragmentDoc,
+    "\n  fragment PokeItem on pokemon_v2_pokemon {\n    id\n    name\n    sprites: pokemon_v2_pokemonsprites(limit: 1) {\n      ...PokeSprite\n    }\n\n    types: pokemon_v2_pokemontypes {\n      ...PokeType\n    }\n  }\n": types.PokeItemFragmentDoc,
+    "\n  fragment PokeSprite on pokemon_v2_pokemonsprites {\n    sprites\n  }\n": types.PokeSpriteFragmentDoc,
     "\n  query pokemonsAPIquery($offset: Int!) {\n    pokemons: pokemon_v2_pokemon(limit: 10, offset: $offset) {\n      ...PokeItem\n    }\n\n    nextPage: pokemon_v2_pokemon_aggregate(offset: $offset) {\n      aggregate {\n        count(columns: id)\n      }\n    }\n  }\n": types.PokemonsApIqueryDocument,
     "\n  fragment PokeType on pokemon_v2_pokemontype {\n    pokemon_v2_type {\n      name\n      id\n    }\n  }\n": types.PokeTypeFragmentDoc,
 };
@@ -35,7 +36,11 @@ export function graphql(source: string): unknown;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  fragment PokeItem on pokemon_v2_pokemon {\n    id\n    name\n    sprites: pokemon_v2_pokemonsprites(limit: 1) {\n      sprites\n    }\n\n    types: pokemon_v2_pokemontypes {\n      ...PokeType\n    }\n  }\n"): (typeof documents)["\n  fragment PokeItem on pokemon_v2_pokemon {\n    id\n    name\n    sprites: pokemon_v2_pokemonsprites(limit: 1) {\n      sprites\n    }\n\n    types: pokemon_v2_pokemontypes {\n      ...PokeType\n    }\n  }\n"];
+export function graphql(source: "\n  fragment PokeItem on pokemon_v2_pokemon {\n    id\n    name\n    sprites: pokemon_v2_pokemonsprites(limit: 1) {\n      ...PokeSprite\n    }\n\n    types: pokemon_v2_pokemontypes {\n      ...PokeType\n    }\n  }\n"): (typeof documents)["\n  fragment PokeItem on pokemon_v2_pokemon {\n    id\n    name\n    sprites: pokemon_v2_pokemonsprites(limit: 1) {\n      ...PokeSprite\n    }\n\n    types: pokemon_v2_pokemontypes {\n      ...PokeType\n    }\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  fragment PokeSprite on pokemon_v2_pokemonsprites {\n    sprites\n  }\n"): (typeof documents)["\n  fragment PokeSprite on pokemon_v2_pokemonsprites {\n    sprites\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

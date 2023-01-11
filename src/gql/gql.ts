@@ -14,8 +14,9 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  */
 const documents = {
     "\n  fragment PokeItem on pokemon_v2_pokemon {\n    id\n    name\n    sprites: pokemon_v2_pokemonsprites(limit: 1) {\n      ...PokeSprite\n    }\n\n    types: pokemon_v2_pokemontypes {\n      ...PokeType\n    }\n  }\n": types.PokeItemFragmentDoc,
+    "\n  query pokemonTypesAPIquery {\n    pokemon_v2_pokemontype(distinct_on: type_id) {\n      type: pokemon_v2_type {\n        name\n        id\n      }\n    }\n  }\n": types.PokemonTypesApIqueryDocument,
     "\n  fragment PokeSprite on pokemon_v2_pokemonsprites {\n    sprites\n  }\n": types.PokeSpriteFragmentDoc,
-    "\n  query pokemonsAPIquery($offset: Int!) {\n    pokemons: pokemon_v2_pokemon(limit: 10, offset: $offset) {\n      ...PokeItem\n    }\n\n    nextPage: pokemon_v2_pokemon_aggregate(offset: $offset) {\n      aggregate {\n        count(columns: id)\n      }\n    }\n  }\n": types.PokemonsApIqueryDocument,
+    "\n  query pokemonsAPIquery(\n    $offset: Int!\n    $sorting: [pokemon_v2_pokemon_order_by!]\n    $where: pokemon_v2_pokemon_bool_exp\n  ) {\n    pokemons: pokemon_v2_pokemon(\n      limit: 10\n      offset: $offset\n      order_by: $sorting\n      where: $where\n    ) {\n      ...PokeItem\n    }\n\n    nextPage: pokemon_v2_pokemon_aggregate(offset: $offset, where: $where) {\n      aggregate {\n        count(columns: id)\n      }\n    }\n  }\n": types.PokemonsApIqueryDocument,
     "\n  fragment PokeType on pokemon_v2_pokemontype {\n    pokemon_v2_type {\n      name\n      id\n    }\n  }\n": types.PokeTypeFragmentDoc,
 };
 
@@ -40,11 +41,15 @@ export function graphql(source: "\n  fragment PokeItem on pokemon_v2_pokemon {\n
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
+export function graphql(source: "\n  query pokemonTypesAPIquery {\n    pokemon_v2_pokemontype(distinct_on: type_id) {\n      type: pokemon_v2_type {\n        name\n        id\n      }\n    }\n  }\n"): (typeof documents)["\n  query pokemonTypesAPIquery {\n    pokemon_v2_pokemontype(distinct_on: type_id) {\n      type: pokemon_v2_type {\n        name\n        id\n      }\n    }\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
 export function graphql(source: "\n  fragment PokeSprite on pokemon_v2_pokemonsprites {\n    sprites\n  }\n"): (typeof documents)["\n  fragment PokeSprite on pokemon_v2_pokemonsprites {\n    sprites\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  query pokemonsAPIquery($offset: Int!) {\n    pokemons: pokemon_v2_pokemon(limit: 10, offset: $offset) {\n      ...PokeItem\n    }\n\n    nextPage: pokemon_v2_pokemon_aggregate(offset: $offset) {\n      aggregate {\n        count(columns: id)\n      }\n    }\n  }\n"): (typeof documents)["\n  query pokemonsAPIquery($offset: Int!) {\n    pokemons: pokemon_v2_pokemon(limit: 10, offset: $offset) {\n      ...PokeItem\n    }\n\n    nextPage: pokemon_v2_pokemon_aggregate(offset: $offset) {\n      aggregate {\n        count(columns: id)\n      }\n    }\n  }\n"];
+export function graphql(source: "\n  query pokemonsAPIquery(\n    $offset: Int!\n    $sorting: [pokemon_v2_pokemon_order_by!]\n    $where: pokemon_v2_pokemon_bool_exp\n  ) {\n    pokemons: pokemon_v2_pokemon(\n      limit: 10\n      offset: $offset\n      order_by: $sorting\n      where: $where\n    ) {\n      ...PokeItem\n    }\n\n    nextPage: pokemon_v2_pokemon_aggregate(offset: $offset, where: $where) {\n      aggregate {\n        count(columns: id)\n      }\n    }\n  }\n"): (typeof documents)["\n  query pokemonsAPIquery(\n    $offset: Int!\n    $sorting: [pokemon_v2_pokemon_order_by!]\n    $where: pokemon_v2_pokemon_bool_exp\n  ) {\n    pokemons: pokemon_v2_pokemon(\n      limit: 10\n      offset: $offset\n      order_by: $sorting\n      where: $where\n    ) {\n      ...PokeItem\n    }\n\n    nextPage: pokemon_v2_pokemon_aggregate(offset: $offset, where: $where) {\n      aggregate {\n        count(columns: id)\n      }\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

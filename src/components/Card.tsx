@@ -2,6 +2,7 @@ import { FragmentType, useFragment } from "../gql/fragment-masking";
 import { graphql } from "../gql";
 import { TypeBadge } from "./TypeBadge";
 import { Image } from "./Image";
+import { Favourite } from "./Favourite";
 
 export const PokeFragment = graphql(/* GraphQL */ `
   fragment PokeItem on pokemon_v2_pokemon {
@@ -29,6 +30,7 @@ export function Card(props: { poke: FragmentType<typeof PokeFragment> }) {
         {poke.types.map((type, i) => (
           <TypeBadge type={type} key={i} />
         ))}
+        <Favourite id={poke.id} />
       </div>
     </div>
   );

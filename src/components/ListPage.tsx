@@ -32,19 +32,21 @@ export function ListPage({
   const pokemons = data?.pokemons;
   const leftItems = data?.nextPage?.aggregate?.count;
 
+  if (error) return <p>Oh no... {error.message}</p>;
+
+  if (fetching) {
+    return <Loading />;
+  }
+
   return (
     <>
-      {error && <p>Oh no... {error.message}</p>}
-
-      {fetching && <Loading />}
-
       {pokemons && (
         <>
           {pokemons.map((poke, i) => (
             <Card poke={poke} key={`${variables.offset}_${i}`} />
           ))}
 
-          {isLastPage && leftItems && (
+          {isLastPage && !!leftItems && (
             <div className="self-end my-auto">
               <button
                 className="btn btn-primary btn-wide"
@@ -52,6 +54,12 @@ export function ListPage({
               >
                 load more
               </button>
+            </div>
+          )}
+
+          {isLastPage && !leftItems && (
+            <div className="self-end my-auto">
+              <p>No items were found :(</p>
             </div>
           )}
         </>

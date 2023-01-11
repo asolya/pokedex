@@ -62,7 +62,7 @@ export function Filter(props: {
 
         {fetching && <Loading />}
         <select
-          className="select select-bordered select-primary select-sm"
+          className="select select-bordered select-primary"
           onChange={onChange}
           value={value || ""}
         >

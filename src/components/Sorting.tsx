@@ -79,7 +79,7 @@ export function Sorting(props: {
           <span className="label-text text-gray-600">Sort by</span>
         </label>
         <select
-          className="select select-bordered select-primary select-sm"
+          className="select select-bordered select-primary"
           onChange={onChange}
           value={selected}
         >

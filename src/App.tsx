@@ -25,30 +25,32 @@ function App() {
     <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex max-w-100 items-center flex-col flex-grow">
-        <Search
-          variables={variables}
-          onChange={(value) => {
-            setVariables({
-              ...variables,
-              where: { ...variables.where, ...value },
-            });
-          }}
-        />
-        <Filter
-          variables={variables}
-          onSelect={(value) => {
-            setVariables({
-              ...variables,
-              where: { ...variables.where, ...value },
-            });
-          }}
-        />
-        <Sorting
-          variables={variables}
-          onSelect={(value) => {
-            setVariables({ ...variables, sorting: value });
-          }}
-        />
+        <div className="container flex flex-grow justify-center my-8">
+          <Search
+            variables={variables}
+            onChange={(value) => {
+              setVariables({
+                ...variables,
+                where: { ...variables.where, ...value },
+              });
+            }}
+          />
+          <Filter
+            variables={variables}
+            onSelect={(value) => {
+              setVariables({
+                ...variables,
+                where: { ...variables.where, ...value },
+              });
+            }}
+          />
+          <Sorting
+            variables={variables}
+            onSelect={(value) => {
+              setVariables({ ...variables, sorting: value });
+            }}
+          />
+        </div>
         <List variables={variables} />
       </main>
       <Footer />

@@ -1,5 +1,6 @@
-import { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent, useEffect, useRef } from "react";
 import { Pokemon_V2_Pokemon_Bool_Exp } from "../gql/graphql";
+import debounce from "lodash.debounce";
 
 export function Search(props: {
   variables: { where?: Pokemon_V2_Pokemon_Bool_Exp };
@@ -12,47 +13,40 @@ export function Search(props: {
     return "";
   });
 
+  const debouncedSearch = useRef(
+    debounce((value: string) => {
+      if (!value) {
+        props.onChange({ name: {} });
+        return;
+      }
+
+      props.onChange({ name: { _similar: value + "%" } });
+    }, 1000)
+  ).current;
+
+  useEffect(() => {
+    return () => {
+      debouncedSearch.cancel();
+    };
+  }, [debouncedSearch]);
+
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
-  };
-
-  const onButtonClick = () => {
-    if (!value) {
-      props.onChange({ name: {} });
-      return;
-    }
-
-    props.onChange({ name: { _similar: value + "%" } });
+    debouncedSearch(e.target.value);
   };
 
   return (
     <div className="container m-4 w-fit">
-      <div className="form-control">
-        <div className="input-group">
-          <input
-            type="text"
-            placeholder="Search…"
-            className="input input-bordered"
-            value={value}
-            onChange={onChange}
-          />
-          <button className="btn btn-square" onClick={onButtonClick}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-              />
-            </svg>
-          </button>
-        </div>
+      <div className="form-control flex flex-row justify-center align-baseline">
+        <label className="label pr-3">
+          <span className="label-text text-gray-600">Name</span>
+        </label>
+        <input
+          type="text"
+          className="input input-bordered input-primary w-full max-w-xs"
+          value={value}
+          onChange={onChange}
+        />
       </div>
     </div>
   );

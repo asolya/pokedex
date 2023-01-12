@@ -66,12 +66,12 @@ export function Filter(props: {
           onChange={onChange}
           value={value || ""}
         >
-          <option value="" className="capitalize" key={`filter-0`}>
+          <option value="" key="filter-0">
             -
           </option>
           {types.length &&
             types.map(({ name, id }) => (
-              <option value={id} className="capitalize" key={`filter-${id}`}>
+              <option value={id} key={`filter-${id}`}>
                 {name}
               </option>
             ))}

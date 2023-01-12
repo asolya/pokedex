@@ -86,10 +86,10 @@ export function Sorting(props: {
           <option disabled value="">
             -
           </option>
-          <option value="1">Name asc</option>
-          <option value="2">Name desc</option>
-          <option value="3">Type asc</option>
-          <option value="4">Type desc</option>
+          <option value="1">name ⬆️</option>
+          <option value="2">name ⬇️</option>
+          <option value="3">type ⬆️</option>
+          <option value="4">type ⬇️</option>
         </select>
       </div>
     </div>

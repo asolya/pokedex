@@ -23,14 +23,22 @@ export function Card(props: { poke: FragmentType<typeof PokeFragment> }) {
 
   return (
     <div className="card w-64 bg-base-100 shadow-xl m-4" key={poke.id}>
+      <div className="card-actions justify-end">
+        <div className="badge badge-ghost align-itself-end mr-4 mt-4">
+          #{poke.id}
+        </div>
+      </div>
       <Image sprite={poke.sprites[0]} name={poke.name} />
+
       <div className="card-body">
-        <h2 className="card-title capitalize">{poke.name}</h2>
-        <div className="badge badge-outline">#{poke.id}</div>
-        {poke.types.map((type, i) => (
-          <TypeBadge type={type} key={i} />
-        ))}
-        <Favourite id={poke.id} />
+        <h2 className="card-title capitalize">
+          {poke.name} <Favourite id={poke.id} />
+        </h2>
+        <div className="card-actions justify-start">
+          {poke.types.map((type, i) => (
+            <TypeBadge type={type} key={i} />
+          ))}
+        </div>
       </div>
     </div>
   );

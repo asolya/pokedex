@@ -4,13 +4,11 @@ export function Favourite(props: { id: number }) {
   const [isFavourite, handleToggleFavourite] = useFavourite(props.id);
 
   return (
-    <div className="rating">
-      <div
-        onClick={handleToggleFavourite}
-        className={`mask mask-star w-4 h-4 ${
-          isFavourite ? "bg-accent" : "bg-primary"
-        }`}
-      />
-    </div>
+    <button
+      onClick={handleToggleFavourite}
+      className={`mask mask-star-2 w-6 h-6 ${
+        isFavourite ? "bg-primary-focus" : "bg-primary"
+      }`}
+    />
   );
 }

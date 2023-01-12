@@ -47,7 +47,7 @@ export function ListPage({
           ))}
 
           {isLastPage && !!leftItems && (
-            <div className="self-end my-auto">
+            <div className="self-end my-8">
               <button
                 className="btn btn-primary btn-wide"
                 onClick={() => onLoadMore(variables.offset + 10)}

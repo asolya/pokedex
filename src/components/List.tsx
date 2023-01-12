@@ -9,7 +9,7 @@ const pokemonsWithVariablesQueryDocument = graphql(/* GraphQL */ `
     $where: pokemon_v2_pokemon_bool_exp
   ) {
     pokemons: pokemon_v2_pokemon(
-      limit: 10
+      limit: 12
       offset: $offset
       order_by: $sorting
       where: $where
@@ -40,7 +40,7 @@ export function List(props: { variables: {} }) {
 
   return (
     <>
-      <div className="container flex flex-row flex-wrap max-w-100 justify-center">
+      <div className="container flex flex-row flex-wrap max-w-7xl justify-center">
         {pageVariables.map((variables, i) => (
           <ListPage
             key={i}

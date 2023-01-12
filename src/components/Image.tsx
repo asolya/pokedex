@@ -13,7 +13,7 @@ export function Image(props: {
 }) {
   const sprite = useFragment(PokeSpriteFragment, props.sprite);
 
-  const src = JSON.parse(sprite.sprites)?.front_shiny as string;
+  const src = JSON.parse(sprite.sprites)?.front_default as string;
 
   return (
     <figure className="mx-auto w-24 h-24">

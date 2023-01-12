@@ -2,7 +2,6 @@ import { useState, ChangeEvent } from "react";
 import { Pokemon_V2_Pokemon_Bool_Exp } from "../gql/graphql";
 import { graphql } from "../gql";
 import { useQuery } from "urql";
-import { Loading } from "./Loading";
 
 const pokemonTypesQueryDocument = graphql(/* GraphQL */ `
   query pokemonTypesAPIquery {
@@ -59,13 +58,12 @@ export function Filter(props: {
           <span className="label-text text-gray-600">Type</span>
         </label>
         {error && <p>Oh no... {error.message}</p>}
-
-        {fetching && <Loading />}
         <select
           className="select select-bordered select-primary"
           onChange={onChange}
           value={value || ""}
         >
+          {fetching && <option>Loading...</option>}
           <option value="" key="filter-0">
             -
           </option>

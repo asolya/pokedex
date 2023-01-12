@@ -25,7 +25,7 @@ function App() {
     <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex max-w-100 items-center flex-col flex-grow">
-        <div className="container flex flex-col md:flex-row flex-grow justify-center mt-8 mb-4">
+        <div className="container flex flex-col md:flex-row justify-center mt-8 mb-4">
           <Search
             variables={variables}
             onChange={(value) => {

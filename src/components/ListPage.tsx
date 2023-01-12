@@ -58,8 +58,13 @@ export function ListPage({
           )}
 
           {isLastPage && !leftItems && (
-            <div className="self-end my-auto">
-              <p>No items were found :(</p>
+            <div>
+              <p>No items were found 🙃</p>
+              <img
+                src="https://media.giphy.com/media/3o6Ztnp2gdGHwsfrmU/giphy-downsized.gif"
+                alt="gif with pikachu"
+                className="w-40 mt-8"
+              />
             </div>
           )}
         </>

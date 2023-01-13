@@ -1,30 +1,29 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useCallback } from "react";
+import { useLocalStorage } from "usehooks-ts";
 
 export function useFavourite(
   id: number
 ): [isFavourite: boolean, toggleFavourites: () => void] {
+  const [favourites, updateFavourites] = useLocalStorage<number[]>(
+    "favourites",
+    []
+  );
+
   const [isFavourite, setFavourite] = useState<boolean>(() => {
-    const favourites = JSON.parse(localStorage.getItem("favourites") || "[]");
     return favourites.includes(id);
   });
 
-  useEffect(() => {
-    const favourites: number[] = JSON.parse(
-      localStorage.getItem("favourites") || "[]"
-    );
+  const toggleFavourites = useCallback(() => {
     let updatedFavourites: number[] = [];
-    if (isFavourite) {
+    if (!isFavourite) {
       updatedFavourites = [...favourites, id];
     } else {
       updatedFavourites = favourites.filter((savedId) => savedId !== id);
     }
-
-    localStorage.setItem("favourites", JSON.stringify(updatedFavourites));
-  }, [isFavourite, id]);
-
-  const toggleFavourites = useCallback(() => {
     setFavourite(!isFavourite);
-  }, [setFavourite, isFavourite]);
+
+    updateFavourites(updatedFavourites);
+  }, [setFavourite, isFavourite, updateFavourites, favourites, id]);
 
   return [isFavourite, toggleFavourites];
 }

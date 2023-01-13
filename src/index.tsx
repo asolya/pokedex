@@ -17,6 +17,7 @@ import {
 
 import "./index.css";
 import { Main } from "./pages/Main";
+import { Favourites } from "./pages/Favourites";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -28,7 +29,12 @@ const client = createClient({
 });
 
 const router = createBrowserRouter(
-  createRoutesFromElements(<Route path="/" element={<Main />}></Route>)
+  createRoutesFromElements(
+    <>
+      <Route path="/" element={<Main />} />
+      <Route path="/favs" element={<Favourites />} />
+    </>
+  )
 );
 
 root.render(

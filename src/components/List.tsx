@@ -8,9 +8,10 @@ const pokemonsWithVariablesQueryDocument = graphql(/* GraphQL */ `
     $offset: Int!
     $sorting: [pokemon_v2_pokemon_order_by!]
     $where: pokemon_v2_pokemon_bool_exp
+    $limit: Int
   ) {
     pokemons: pokemon_v2_pokemon(
-      limit: 12
+      limit: $limit
       offset: $offset
       order_by: $sorting
       where: $where

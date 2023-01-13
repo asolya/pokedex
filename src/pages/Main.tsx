@@ -12,13 +12,15 @@ import {
 type State = {
   sorting: Array<Pokemon_V2_Pokemon_Order_By>;
   where: Pokemon_V2_Pokemon_Bool_Exp;
+  limit: number;
 };
 
 export function Main() {
-  const [variables, setVariables] = useState({
+  const [variables, setVariables] = useState<State>({
     sorting: [],
     where: {},
-  } as State);
+    limit: 12
+  });
 
   return (
     <Container>

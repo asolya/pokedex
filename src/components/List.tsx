@@ -40,7 +40,10 @@ export function List(props: { variables: {} }) {
 
   return (
     <>
-      <div className="container flex flex-row flex-wrap max-w-7xl justify-center">
+      <div
+        className="container flex flex-row flex-wrap max-w-7xl justify-center"
+        data-testid="list"
+      >
         {pageVariables.map((variables, i) => (
           <ListPage
             key={i}

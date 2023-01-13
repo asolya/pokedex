@@ -1,0 +1,245 @@
+{
+  "mockedTypesResponse": {
+    "data": {
+      "pokemon_v2_pokemontype": [
+        {
+          "type": {
+            "name": "normal",
+            "id": 1,
+            "__typename": "pokemon_v2_type"
+          },
+          "__typename": "pokemon_v2_pokemontype"
+        },
+        {
+          "type": {
+            "name": "fighting",
+            "id": 2,
+            "__typename": "pokemon_v2_type"
+          },
+          "__typename": "pokemon_v2_pokemontype"
+        },
+        {
+          "type": {
+            "name": "flying",
+            "id": 3,
+            "__typename": "pokemon_v2_type"
+          },
+          "__typename": "pokemon_v2_pokemontype"
+        },
+        {
+          "type": {
+            "name": "poison",
+            "id": 4,
+            "__typename": "pokemon_v2_type"
+          },
+          "__typename": "pokemon_v2_pokemontype"
+        },
+        {
+          "type": {
+            "name": "ground",
+            "id": 5,
+            "__typename": "pokemon_v2_type"
+          },
+          "__typename": "pokemon_v2_pokemontype"
+        },
+        {
+          "type": { "name": "rock", "id": 6, "__typename": "pokemon_v2_type" },
+          "__typename": "pokemon_v2_pokemontype"
+        },
+        {
+          "type": { "name": "bug", "id": 7, "__typename": "pokemon_v2_type" },
+          "__typename": "pokemon_v2_pokemontype"
+        },
+        {
+          "type": { "name": "ghost", "id": 8, "__typename": "pokemon_v2_type" },
+          "__typename": "pokemon_v2_pokemontype"
+        },
+        {
+          "type": { "name": "steel", "id": 9, "__typename": "pokemon_v2_type" },
+          "__typename": "pokemon_v2_pokemontype"
+        },
+        {
+          "type": { "name": "fire", "id": 10, "__typename": "pokemon_v2_type" },
+          "__typename": "pokemon_v2_pokemontype"
+        },
+        {
+          "type": {
+            "name": "water",
+            "id": 11,
+            "__typename": "pokemon_v2_type"
+          },
+          "__typename": "pokemon_v2_pokemontype"
+        },
+        {
+          "type": {
+            "name": "grass",
+            "id": 12,
+            "__typename": "pokemon_v2_type"
+          },
+          "__typename": "pokemon_v2_pokemontype"
+        },
+        {
+          "type": {
+            "name": "electric",
+            "id": 13,
+            "__typename": "pokemon_v2_type"
+          },
+          "__typename": "pokemon_v2_pokemontype"
+        },
+        {
+          "type": {
+            "name": "psychic",
+            "id": 14,
+            "__typename": "pokemon_v2_type"
+          },
+          "__typename": "pokemon_v2_pokemontype"
+        },
+        {
+          "type": { "name": "ice", "id": 15, "__typename": "pokemon_v2_type" },
+          "__typename": "pokemon_v2_pokemontype"
+        },
+        {
+          "type": {
+            "name": "dragon",
+            "id": 16,
+            "__typename": "pokemon_v2_type"
+          },
+          "__typename": "pokemon_v2_pokemontype"
+        },
+        {
+          "type": { "name": "dark", "id": 17, "__typename": "pokemon_v2_type" },
+          "__typename": "pokemon_v2_pokemontype"
+        },
+        {
+          "type": {
+            "name": "fairy",
+            "id": 18,
+            "__typename": "pokemon_v2_type"
+          },
+          "__typename": "pokemon_v2_pokemontype"
+        }
+      ]
+    }
+  },
+  "mockedPokemonsResponse": {
+    "data": {
+      "pokemons": [
+        {
+          "id": 1,
+          "name": "bulbasaur",
+          "sprites": [
+            {
+              "sprites": "{\"front_default\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png\"}",
+              "__typename": "pokemon_v2_pokemonsprites"
+            }
+          ],
+          "types": [
+            {
+              "pokemon_v2_type": {
+                "name": "grass",
+                "id": 12,
+                "__typename": "pokemon_v2_type"
+              },
+              "__typename": "pokemon_v2_pokemontype"
+            },
+            {
+              "pokemon_v2_type": {
+                "name": "poison",
+                "id": 4,
+                "__typename": "pokemon_v2_type"
+              },
+              "__typename": "pokemon_v2_pokemontype"
+            }
+          ],
+          "__typename": "pokemon_v2_pokemon"
+        },
+        {
+          "id": 2,
+          "name": "ivysaur",
+          "sprites": [
+            {
+              "sprites": "{\"front_default\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png\"}",
+              "__typename": "pokemon_v2_pokemonsprites"
+            }
+          ],
+          "types": [
+            {
+              "pokemon_v2_type": {
+                "name": "grass",
+                "id": 12,
+                "__typename": "pokemon_v2_type"
+              },
+              "__typename": "pokemon_v2_pokemontype"
+            },
+            {
+              "pokemon_v2_type": {
+                "name": "poison",
+                "id": 4,
+                "__typename": "pokemon_v2_type"
+              },
+              "__typename": "pokemon_v2_pokemontype"
+            }
+          ],
+          "__typename": "pokemon_v2_pokemon"
+        },
+        {
+          "id": 3,
+          "name": "venusaur",
+          "sprites": [
+            {
+              "sprites": "{\"front_default\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png\"}",
+              "__typename": "pokemon_v2_pokemonsprites"
+            }
+          ],
+          "types": [
+            {
+              "pokemon_v2_type": {
+                "name": "grass",
+                "id": 12,
+                "__typename": "pokemon_v2_type"
+              },
+              "__typename": "pokemon_v2_pokemontype"
+            },
+            {
+              "pokemon_v2_type": {
+                "name": "poison",
+                "id": 4,
+                "__typename": "pokemon_v2_type"
+              },
+              "__typename": "pokemon_v2_pokemontype"
+            }
+          ],
+          "__typename": "pokemon_v2_pokemon"
+        },
+        {
+          "id": 4,
+          "name": "charmander",
+          "sprites": [
+            {
+              "sprites": "{\"front_default\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png\"}",
+              "__typename": "pokemon_v2_pokemonsprites"
+            }
+          ],
+          "types": [
+            {
+              "pokemon_v2_type": {
+                "name": "fire",
+                "id": 10,
+                "__typename": "pokemon_v2_type"
+              },
+              "__typename": "pokemon_v2_pokemontype"
+            }
+          ],
+          "__typename": "pokemon_v2_pokemon"
+        }
+      ],
+      "nextPage": {
+        "aggregate": {
+          "count": 4,
+          "__typename": "pokemon_v2_pokemon_aggregate_fields"
+        },
+        "__typename": "pokemon_v2_pokemon_aggregate"
+      }
+    }
+  }
+}

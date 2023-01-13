@@ -22,7 +22,11 @@ export function Card(props: { poke: FragmentType<typeof PokeFragment> }) {
   const poke = useFragment(PokeFragment, props.poke);
 
   return (
-    <div className="card w-64 bg-base-100 shadow-xl m-4" key={poke.id}>
+    <div
+      className="card w-64 bg-base-100 shadow-xl m-4"
+      key={poke.id}
+      data-testid="pokemon-card"
+    >
       <div className="card-actions justify-end">
         <div className="badge badge-ghost align-itself-end mr-4 mt-4">
           #{poke.id}

@@ -54,7 +54,7 @@ export function Filter(props: {
   return (
     <div className="container m-4 w-fit">
       <div className="form-control flex flex-row justify-center align-baseline">
-        <label className="label pr-3">
+        <label className="label pr-3" htmlFor="filter">
           <span className="label-text text-gray-600">Type</span>
         </label>
         {error && <p>Oh no... {error.message}</p>}
@@ -62,6 +62,7 @@ export function Filter(props: {
           className="select select-bordered select-primary"
           onChange={onChange}
           value={value || ""}
+          id="filter"
         >
           {fetching && <option>Loading...</option>}
           <option value="" key="filter-0">
@@ -69,7 +70,11 @@ export function Filter(props: {
           </option>
           {types.length &&
             types.map(({ name, id }) => (
-              <option value={id} key={`filter-${id}`}>
+              <option
+                value={id}
+                key={`filter-${id}`}
+                data-testid="pokemon-type-option"
+              >
                 {name}
               </option>
             ))}

@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# Getting Started with Pokedex
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+The deployed version is [here](https://sunny-banoffee-d571b0.netlify.app/).
 
 ## Available Scripts
 
@@ -29,18 +31,20 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### `npm run codegen`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+This project is using [`GraphQL Code Generator`](https://the-guild.dev/graphql/codegen). GraphQL Code Generator is a plugin-based tool that helps you get the best out of your GraphQL stack.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To start codegen in watch mode, please run `npm run codegen -- --watch`, this is useful while developing graphql queries.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Project description
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+This project a simplified version of Pokedex. It consumes [Graphql Pokemon API](https://beta.pokeapi.co/graphql/console/) and the app bootstraped with [CRA](). Under the hood it uses Typescript, [Urql](https://formidable.com/open-source/urql/) as graphql client, [Daisyui](https://daisyui.com/) and [Tailwindcss](https://tailwindcss.com/). Also [`GraphQL Code Generator`](https://the-guild.dev/graphql/codegen) to generate types for queries.
 
-## Learn More
+### User stories
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- As a user, I should be able to see the Pokemon (image, name, type)
+- As a user, I should be able to search for a Pokemon
+- As a user, I should be able to filter by type
+- As a user, I should be able to sort by name, type
+- As a user, I would like to be able to favorite several Pokemons and I would like those Pokemons to persist in the browser (local is sufficient, no need for external APIs) (`My favorites` should be accessible on a different route)

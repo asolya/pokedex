@@ -56,7 +56,7 @@ export function Sorting(props: {
       }
       case "3": {
         sorting.push({
-          pokemon_v2_pokemontypes_aggregate: { avg: { type_id: Order_By.Asc } },
+          pokemon_v2_pokemontypes_aggregate: { sum: { type_id: Order_By.Asc } },
         });
         break;
       }

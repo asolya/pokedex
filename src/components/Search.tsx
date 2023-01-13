@@ -1,6 +1,7 @@
 import { useState, ChangeEvent, useEffect, useRef } from "react";
 import { Pokemon_V2_Pokemon_Bool_Exp } from "../gql/graphql";
 import debounce from "lodash.debounce";
+import escape from "lodash.escape";
 
 export function Search(props: {
   variables: { where?: Pokemon_V2_Pokemon_Bool_Exp };
@@ -20,7 +21,7 @@ export function Search(props: {
         return;
       }
 
-      props.onChange({ name: { _similar: value + "%" } });
+      props.onChange({ name: { _similar: escape(value).toLowerCase() + "%" } });
     }, 1000)
   ).current;
 

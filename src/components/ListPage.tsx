@@ -29,8 +29,8 @@ export function ListPage({
 
   const { data, fetching, error } = result;
 
-  const pokemons = data?.pokemons;
-  const leftItems = data?.nextPage?.aggregate?.count;
+  const pokemons = data?.pokemons || [];
+  const leftItems = pokemons.length - (data?.nextPage?.aggregate?.count || 0);
 
   if (error) return <p>Oh no... {error.message}</p>;
 
@@ -57,7 +57,7 @@ export function ListPage({
             </div>
           )}
 
-          {isLastPage && !leftItems && (
+          {isLastPage && !pokemons.length && (
             <div>
               <p>No items were found 🙃</p>
               <img

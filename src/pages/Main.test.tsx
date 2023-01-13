@@ -1,5 +1,11 @@
 import { Provider } from "urql";
 import { fromValue } from "wonka";
+import {
+  createMemoryRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
 import { render, screen, within } from "@testing-library/react";
 import { Main } from "./Main";
 import {
@@ -15,6 +21,10 @@ import { Kind } from "graphql";
 type Props = {
   query: typeof PokemonTypesApIqueryDocument | typeof PokemonsApIqueryDocument;
 };
+
+const router = createMemoryRouter(
+  createRoutesFromElements(<Route path="/" element={<Main />} />)
+);
 
 const executeQueryImplementation = (props: Props) => {
   const query = props.query;
@@ -44,7 +54,7 @@ const urqlMock: unknown = {
 test("renders page correctly with given responses", () => {
   render(
     <Provider value={urqlMock as any}>
-      <Main />
+      <RouterProvider router={router} />
     </Provider>
   );
   const filterNode = screen.getByLabelText("Type", { selector: "select" });

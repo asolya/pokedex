@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { graphql } from "../gql";
+import { PokemonsApIqueryQueryVariables } from "../gql/graphql";
 import { ListPage } from "./ListPage";
 
 const pokemonsWithVariablesQueryDocument = graphql(/* GraphQL */ `
@@ -31,7 +32,9 @@ const defaultState = [
   },
 ];
 
-export function List(props: { variables: {} }) {
+export function List(props: {
+  variables: Partial<PokemonsApIqueryQueryVariables>;
+}) {
   const [pageVariables, setPageVariables] = useState(defaultState);
 
   useEffect(() => {
@@ -39,23 +42,21 @@ export function List(props: { variables: {} }) {
   }, [props.variables]);
 
   return (
-    <>
-      <div
-        className="container flex flex-row flex-wrap max-w-7xl justify-center"
-        data-testid="list"
-      >
-        {pageVariables.map((variables, i) => (
-          <ListPage
-            key={i}
-            variables={{ ...variables, ...props.variables }}
-            query={pokemonsWithVariablesQueryDocument}
-            isLastPage={i === pageVariables.length - 1}
-            onLoadMore={(newOffset) =>
-              setPageVariables([...pageVariables, { offset: newOffset }])
-            }
-          />
-        ))}
-      </div>
-    </>
+    <div
+      className="container flex flex-row flex-wrap max-w-7xl justify-center"
+      data-testid="list"
+    >
+      {pageVariables.map((variables, i) => (
+        <ListPage
+          key={i}
+          variables={{ ...variables, ...props.variables }}
+          query={pokemonsWithVariablesQueryDocument}
+          isLastPage={i === pageVariables.length - 1}
+          onLoadMore={(newOffset) =>
+            setPageVariables([...pageVariables, { offset: newOffset }])
+          }
+        />
+      ))}
+    </div>
   );
 }

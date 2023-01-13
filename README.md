@@ -39,7 +39,7 @@ To start codegen in watch mode, please run `npm run codegen -- --watch`, this is
 
 ## Project description
 
-This project a simplified version of Pokedex. It consumes [Graphql Pokemon API](https://beta.pokeapi.co/graphql/console/) and the app bootstraped with [CRA](). Under the hood it uses Typescript, [Urql](https://formidable.com/open-source/urql/) as graphql client, [Daisyui](https://daisyui.com/) and [Tailwindcss](https://tailwindcss.com/). Also [`GraphQL Code Generator`](https://the-guild.dev/graphql/codegen) to generate types for queries.
+This project a simplified version of Pokedex. It consumes [Graphql Pokemon API](https://beta.pokeapi.co/graphql/console/) and the app bootstraped with [CRA](). Under the hood it uses Typescript, [Urql](https://formidable.com/open-source/urql/) as graphql client, [Daisyui](https://daisyui.com/) and [Tailwindcss](https://tailwindcss.com/). Also [GraphQL Code Generator](https://the-guild.dev/graphql/codegen) to generate types for queries.
 
 ### User stories
 

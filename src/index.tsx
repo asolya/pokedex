@@ -8,8 +8,15 @@ import {
   cacheExchange,
 } from "urql";
 
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
+
 import "./index.css";
-import App from "./App";
+import { Main } from "./pages/Main";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -20,10 +27,14 @@ const client = createClient({
   exchanges: [dedupExchange, cacheExchange, fetchExchange],
 });
 
+const router = createBrowserRouter(
+  createRoutesFromElements(<Route path="/" element={<Main />}></Route>)
+);
+
 root.render(
   <React.StrictMode>
     <Provider value={client}>
-      <App />
+      <RouterProvider router={router} />
     </Provider>
   </React.StrictMode>
 );

@@ -1,15 +1,15 @@
 import { Provider } from "urql";
 import { fromValue } from "wonka";
 import { render, screen, within } from "@testing-library/react";
-import App from "./App";
+import { Main } from "./Main";
 import {
   mockedPokemonsResponse,
   mockedTypesResponse,
-} from "./mocked-data.json";
+} from "../mocked-data.json";
 import {
   PokemonTypesApIqueryDocument,
   PokemonsApIqueryDocument,
-} from "./gql/graphql";
+} from "../gql/graphql";
 import { Kind } from "graphql";
 
 type Props = {
@@ -44,7 +44,7 @@ const urqlMock: unknown = {
 test("renders page correctly with given responses", () => {
   render(
     <Provider value={urqlMock as any}>
-      <App />
+      <Main />
     </Provider>
   );
   const filterNode = screen.getByLabelText("Type", { selector: "select" });

@@ -58,7 +58,7 @@ export function ListPage({
           )}
 
           {isLastPage && !pokemons.length && (
-            <div>
+            <div className="self-end mb-8">
               <p>No items were found 🙃</p>
               <img
                 src="https://media.giphy.com/media/3o6Ztnp2gdGHwsfrmU/giphy-downsized.gif"
